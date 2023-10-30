@@ -124,24 +124,18 @@ public class MainApp {
                         listaAngajatConducere.forEach(System.out::println);
                     }
                     case 6->{
-                        //List<Angajat> listaAngajatConducere=listaAngajat
-                        //        .stream()
-                        //        .filter((a)->(a.getPost()).toLowerCase().contains("sef") || (a.getPost()).toLowerCase().contains("director"))
-                        //        .collect(Collectors.toList());
-                        //listaAngajatConducere.forEach(System.out::println);
-
                         List<Angajat> listaAngajatFaraConducere=listaAngajat
                                 .stream()
-                                .filter((a)->(a.getPost()).toLowerCase().contains("sef") || (a.getPost()).toLowerCase().contains("director"))
+                                .filter((a)->!(a.getPost()).toLowerCase().contains("sef") && !(a.getPost()).toLowerCase().contains("director"))
                                 .sorted((b,a)->a.compareTo(b))
                                 .collect(Collectors.toList());
                         listaAngajatFaraConducere.forEach(System.out::println);
                     }
                     case 7->{
-                        //listaAngajat
-                        //        .stream()
-                        //        .map(String::toUpperCase)
-                        //        .forEach(System.out::println);
+                        listaAngajat
+                                .stream()
+                                .map((a)->a.getNume().toUpperCase())
+                                .forEach(System.out::println);
                     }
                 }
             }
